@@ -1,7 +1,7 @@
 # Class arc_ce::lrms
 # Configures the common options in the lrms block in arc.conf
 class arc_ce::lrms(
-  Arc_ce::Lrms $lrms = lookup('arc_ce::lrms', Optional[String], 'first', 'fork')
+  Arc_ce::Lrms $lrms = lookup('arc_ce::lrms', Optional[String], 'first', 'slurm')
   Optional[String] $defaultqueue = undef,
   Optional[String] $lrmsconfig = undef,
   Hash[String,Numeric,0,1] $benchmark = {},
