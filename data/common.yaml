@@ -1,2 +1,4 @@
 ---
 arc_ce::lrms: 'slurm'
+arc_ce::enable_rte: false
+
