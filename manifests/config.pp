@@ -7,7 +7,7 @@ class arc_ce::config(
   Stdlib::Unixpath $x509_host_key = '/etc/grid-security/hostkey.pem',
   Stdlib::Unixpath $x509_cert_dir = '/etc/grid-security/certificates',
   Stdlib::Unixpath $x509_voms_dir = '/etc/grid-security/vomsdir',
-  Arc_ce::Vomsprocessing $voms_processing = $::arc_ce::voms_processing,
+  Arc_ce::Vomsprocessing $voms_processing = $voms_processing,
   # authgroup block definitions
   Hash[String, Hash] $authgroups = {},
   Optional[String] $all_authgroup = undef,
