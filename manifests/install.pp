@@ -1,11 +1,23 @@
 # Class arc_ce::install
 # Installs the ARC6 package
 class arc_ce::install(
-
-
-  package { ['emi-resource-information-service', 'emi-bdii-top', 'glite-yaim-core', 'glite-yaim-bdii']:
-    ensure          => installed,
-    install_options => {'--disablerepo' => 'epel'},
+  Enum['epel', 'nordugrid'] $install_from = 'epel',
+  String $ensure = 'present',
+  Optional[String] $gridftpd_ensure = 'present',
+  Optional[String] $infosysldap_ensure = 'present',
+) {
+  case $install_from {
+    'epel': {
+      $arex_package = 'nordugrid-arc6-arex'
+      $gridftpd_package = 'nordugrid-arc6-gridftpd'
+      $infosysldap_package = 'nordugrid-arc6-infosys-ldap'
+    }
+    'nordugrid': {
+      $arex_package = 'nordugrid-arc-arex'
+      $gridftpd_package = 'nordugrid-arc-gridftpd'
+      $infosysldap_package = 'nordugrid-arc-infosys-ldap'
+    }
+    default: {}
   }
 
   package { 'nordugrid-arc-arex':

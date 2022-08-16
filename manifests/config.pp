@@ -2,13 +2,12 @@
 # Sets up the configuration file
 class arc_ce::config(
   # common block options
-  string $vanessa = $arc_vanessa
   Stdlib::Fqdn $hostname = $facts['networking']['fqdn'],
   Stdlib::Unixpath $x509_host_cert = '/etc/grid-security/hostcert.pem',
   Stdlib::Unixpath $x509_host_key = '/etc/grid-security/hostkey.pem',
   Stdlib::Unixpath $x509_cert_dir = '/etc/grid-security/certificates',
   Stdlib::Unixpath $x509_voms_dir = '/etc/grid-security/vomsdir',
-  Arc_ce::Vomsprocessing $voms_processing = $voms_processing,
+  Arc_ce::Vomsprocessing $voms_processing = 'standard',
   # authgroup block definitions
   Hash[String, Hash] $authgroups = {},
   Optional[String] $all_authgroup = undef,
