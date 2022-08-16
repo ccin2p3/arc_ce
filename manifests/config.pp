@@ -2,7 +2,7 @@
 # Sets up the configuration file
 class arc_ce::config(
   # common block options
-  $vanessa = $arc_vanessa
+  string $vanessa = $arc_vanessa
   Stdlib::Fqdn $hostname = $facts['networking']['fqdn'],
   Stdlib::Unixpath $x509_host_cert = '/etc/grid-security/hostcert.pem',
   Stdlib::Unixpath $x509_host_key = '/etc/grid-security/hostkey.pem',
